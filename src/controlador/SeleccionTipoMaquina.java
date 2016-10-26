@@ -6,7 +6,6 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-import accesoDatos.Datos;
 import auxiliares.LeeProperties;
 import interfazUsuario.Generico;
 
@@ -27,22 +26,22 @@ public class SeleccionTipoMaquina {
 		HashMap<String, String> nombreClases;
 		Object aux = null;
 		String nombreClase;
-		String rutaFichero = "Ficheros/config/" ;
-		
-		if(tipoClase.equals("accesoDatos")){
+		String rutaFichero = "Ficheros/config/";
+
+		if (tipoClase.equals("accesoDatos")) {
 			rutaFichero += "classNames.properties";
-		}else if(tipoClase.equals("interfazUsuario")){
+		} else if (tipoClase.equals("interfazUsuario")) {
 			rutaFichero += "interfacesNames.properties";
-		}else{
+		} else {
 			System.out.println("Eleccion de clase no valida\nFinaliza la ejecucion");
 			System.exit(1);
 		}
-		
+
 		LeeProperties auxClases = new LeeProperties(rutaFichero);
 
 		nombreClases = auxClases.getHash();
 		int size = nombreClases.size();
-		
+
 		switch (size) {
 		case 0: // No hay clases. Finalizamos ejecución
 			System.out.println(
@@ -57,8 +56,8 @@ public class SeleccionTipoMaquina {
 			System.out.println("Tipo " + tipoClase + " seleccionado: " + nombreClase);
 			aux = this.crearInstanciaClase(nombreClase, tipoClase);
 			break;
-		default: // Hay mas de una clase disponible. 
-				 // Mostramos menu para seleccionar
+		default: // Hay mas de una clase disponible.
+					// Mostramos menu para seleccionar
 
 			int min = 2; // 0 salir y 1 aleatorio
 
@@ -84,7 +83,7 @@ public class SeleccionTipoMaquina {
 			boolean salir = false;
 
 			while (!salir) {// Estructura que repite el algoritmo de seleccion
-							// de acceso a datos hasta que se seleccione 
+							// de acceso a datos hasta que se seleccione
 							// la opcion salir
 				System.out.println();
 				System.out.println(menu);
@@ -108,8 +107,8 @@ public class SeleccionTipoMaquina {
 					default:
 						if (op <= max) {
 							/*
-							 * El array con los nombres de las clases empieza en 0 
-							 * (0- salir y 1-aleatorio)
+							 * El array con los nombres de las clases empieza en
+							 * 0 (0- salir y 1-aleatorio)
 							 */
 							nombreClase = opciones.get(op - 2);
 							System.out.println("Tipo " + tipoClase + " seleccionado: " + nombreClase);
@@ -128,19 +127,18 @@ public class SeleccionTipoMaquina {
 				}
 
 			}
-			
+
 			break;
 
 		}
-		
+
 		return aux;
 
 	}
 
 	/*
-	 * Metodo para crear la instancia de una clase 
-	 * Sirve tanto para interfaz como para acceso a datos
-	 * Se hace cast en la llamada al metodo
+	 * Metodo para crear la instancia de una clase Sirve tanto para interfaz
+	 * como para acceso a datos Se hace cast en la llamada al metodo
 	 */
 
 	@SuppressWarnings("rawtypes")
@@ -151,12 +149,14 @@ public class SeleccionTipoMaquina {
 			Class miclase = Class.forName(paquete + "." + nombreClase);
 			aux = miclase.newInstance();
 		} catch (ClassNotFoundException e) {
-			System.out.println("Error al crear la instancia de " + paquete + ": no se ha encontrado la clase seleccionada");
+			System.out.println(
+					"Error al crear la instancia de " + paquete + ": no se ha encontrado la clase seleccionada");
 			System.out.println("Finaliza la ejecucion");
 			// e.printStackTrace();
 			System.exit(1);
 		} catch (InstantiationException e) {
-			System.out.println("Error al crear la instancia de " + paquete + ": no se puede instanciar la clase seleccionada");
+			System.out.println(
+					"Error al crear la instancia de " + paquete + ": no se puede instanciar la clase seleccionada");
 			System.out.println("Finaliza la ejecucion");
 			// e.printStackTrace();
 			System.exit(1);
@@ -169,7 +169,7 @@ public class SeleccionTipoMaquina {
 
 		return aux;
 	}
-	
+
 	/**
 	 * De stackoverflow
 	 * 

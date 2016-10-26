@@ -6,68 +6,72 @@ package logicaRefrescos;
  * (1, 2, 5, 10, 20 y 50 centimos y 1 y 2 �)
  */
 public class Deposito {
-	
+
 	/*
-	 * Atributos de la clase
-	 * double valor - Valor de la moneda
-	 * double cantidad - numero de monedas de este tipo que hay en un momento dado
+	 * Atributos de la clase double valor - Valor de la moneda double cantidad -
+	 * numero de monedas de este tipo que hay en un momento dado
 	 */
-	private int id;		// Para hibernate
-	private String nombreMoneda; 
-	private int valor;	// En centimos
+	private int id; // Para hibernate
+	private String nombreMoneda;
+	private int valor; // En centimos
 	private int cantidad;
-	
+
 	/*
 	 * Constructor vacío (para Hibernate)
 	 */
-	
-	public Deposito(){}
-	
+
+	public Deposito() {
+	}
+
 	/*
 	 * Constructor
+	 * 
 	 * @param v - valor de la moneda en cuesti�n
-	 * @param inicial - cantidad de monedas de este tipo con las que se inicia la ejecuci�n de la m�quina de refrescos
+	 * 
+	 * @param inicial - cantidad de monedas de este tipo con las que se inicia
+	 * la ejecuci�n de la m�quina de refrescos
 	 */
-	public Deposito(String n, int v, int inicial){
+	public Deposito(String n, int v, int inicial) {
 		id = v;
 		nombreMoneda = n;
 		valor = v;
 		cantidad = inicial;
 	}
-	
+
 	/*
-	 * Aumenta la cantidad de monedas
-	 * Se llamar� a este m�todo cuando el usuario inserte una moneda
+	 * Aumenta la cantidad de monedas Se llamar� a este m�todo cuando el
+	 * usuario inserte una moneda
 	 */
-	public void anadir(){
+	public void anadir() {
 		cantidad++;
 	}
 
 	/*
-	 * Disminuye la cantidad de monedas
-	 * Se llamar� a este m�todo cuando se retornen monedas al usuario 
-	 * (bien cuando pulse el bot�n de retorno, bien cuando haya que devolver cambio)
+	 * Disminuye la cantidad de monedas Se llamar� a este m�todo cuando se
+	 * retornen monedas al usuario (bien cuando pulse el bot�n de retorno,
+	 * bien cuando haya que devolver cambio)
 	 */
-	public void restar(){
+	public void restar() {
 		cantidad--;
 	}
-	
+
 	/*
-	 * Sobrecargamos metodos anadir y restar pasando por parametro el numero que hay que sumar o restar
+	 * Sobrecargamos metodos anadir y restar pasando por parametro el numero que
+	 * hay que sumar o restar
 	 */
 
-	public void anadir(int num){
-		cantidad+=num;
+	public void anadir(int num) {
+		cantidad += num;
 	}
 
-	public void restar(int num){
-		cantidad-=num;
+	public void restar(int num) {
+		cantidad -= num;
 	}
-	
+
 	/*
 	 * Getters y setters (para hibernate)
 	 */
-	
+
 	public int getId() {
 		return id;
 	}
@@ -75,7 +79,7 @@ public class Deposito {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getNombreMoneda() {
 		return nombreMoneda;
 	}
@@ -101,13 +105,14 @@ public class Deposito {
 	}
 
 	/*
-	 * toString
-	 * para comprobar el estado del deposito
+	 * toString para comprobar el estado del deposito
+	 * 
 	 * @return retorna un string con los datos del deposito
 	 */
-	public String toString(){
+	public String toString() {
 		String s = "";
-		s += "El deposito de la moneda "+nombreMoneda+" (" +valor+ " centimos) contiene "+cantidad+" monedas\n";
+		s += "El deposito de la moneda " + nombreMoneda + " (" + valor + " centimos) contiene " + cantidad
+				+ " monedas\n";
 		return s;
 	}
 }

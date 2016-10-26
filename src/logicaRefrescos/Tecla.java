@@ -6,7 +6,7 @@ package logicaRefrescos;
  * Devuelve Ok true o false dependiendo de si ha habido algun error
  */
 public abstract class Tecla {
-	
+
 	public abstract boolean pulsar();
-	
+
 }

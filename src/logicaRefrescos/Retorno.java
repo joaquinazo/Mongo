@@ -14,18 +14,20 @@ public class Retorno extends Tecla {
 
 	/*
 	 * Constructor
+	 * 
 	 * @param asignado - Clasificador que se asigna al bot�n de retorno
 	 */
-	public Retorno(Clasificador asignado){
+	public Retorno(Clasificador asignado) {
 		miClasificador = asignado;
 	}
 
 	/*
-	 * cuando se pulsa la tecla de retorno se lanza el mensaje retornarMonedas al clasificador
+	 * cuando se pulsa la tecla de retorno se lanza el mensaje retornarMonedas
+	 * al clasificador
 	 */
 	public boolean pulsar() {
 		boolean ok = miClasificador.retornarMonedas();
 		return ok;
 	}
-	
+
 }

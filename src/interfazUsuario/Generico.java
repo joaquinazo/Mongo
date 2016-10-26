@@ -2,7 +2,6 @@ package interfazUsuario;
 
 import java.util.Scanner;
 import controlador.Controlador;
-import maquinas.Maquina;
 
 /*
  * Clase abstracta de la que heredan todos los interfaces
@@ -24,35 +23,36 @@ import maquinas.Maquina;
  */
 
 public abstract class Generico {
-	
+
 	Controlador miControlador;
 	Scanner miScanner;
-	
-	public void inicializar(Controlador controlador, Scanner scanner){
+
+	public void inicializar(Controlador controlador, Scanner scanner) {
 		miControlador = controlador;
 		miScanner = scanner;
 	}
-	
-	protected void finalizarMaquina(){
+
+	protected void finalizarMaquina() {
 		miControlador.finalizar();
 	}
-	
-	protected void insertarMoneda(int op){
-		miControlador.insertarMoneda(op);	
+
+	protected void insertarMoneda(int op) {
+		miControlador.insertarMoneda(op);
 	}
 
 	protected void retornarMonedas() {
 		miControlador.retornarMonedas();
 	}
-	
-	protected void seleccionarProducto(String op){
+
+	protected void seleccionarProducto(String op) {
 		miControlador.seleccionarProducto(op);
-	} 
-	
+	}
+
 	public abstract void ejecucionMaquinaRefrescos();
+
 	public abstract void mostrarMensaje(String m, boolean ok);
+
 	// Para depurar, no es necesario
 	protected abstract void verEstadoMaquina();
-
 
 }
