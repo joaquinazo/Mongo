@@ -67,7 +67,7 @@ public class Consola extends Generico {
 			} catch (Exception e) {
 				System.out.println("Excepcion por opcion invalida: marque un numero de 1 a 5");
 				// flushing scanner
-				// e.printStackTrace();
+				e.printStackTrace();
 				miScanner.next();
 			}
 		}
@@ -189,6 +189,7 @@ public class Consola extends Generico {
 					}
 
 				} catch (Exception e) {
+
 					System.out.println("Opcion invalida: marque una las opciones validas");
 					miScanner.next();
 				}

@@ -120,7 +120,8 @@ public class SeleccionTipoMaquina {
 						break;
 					}
 
-				} catch (InputMismatchException e) {
+				} catch (Exception e) {
+					e.printStackTrace();
 					System.out.println("Opcion invalida: marque un numero de 1 a " + max);
 					// flushing scanner
 					teclado.next();

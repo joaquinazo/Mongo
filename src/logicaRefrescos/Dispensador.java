@@ -16,7 +16,7 @@ public class Dispensador {
 	private int id;
 	private String clave;
 	private String nombreProducto;
-	private int cantidad;
+	public int cantidad;
 	private int precio;
 
 	/*
@@ -90,10 +90,11 @@ public class Dispensador {
 	/*
 	 * Disminuye la cantidad de latas de un producto Como no es una m�quina
 	 * real hay que simular de alguna forma que se ha dispensado una lata
-	 * Podemos a�adir un mensaje en este m�todo o hacer que el clasificador
+	 * Podemos a�adir un mensaje en este metodo o hacer que el clasificador
 	 * le pida al visor que muestre un mensaje
 	 */
 	public void dispensar() {
+
 		cantidad--;
 	}
 
